@@ -1,14 +1,14 @@
 const postForm = async event => {
     event.preventDefault();
     
-    const postTitle = document.querySelector('input[name = "title"]').value;
-    const postInfo = document.querySelector('input[name = "Info"]').value;
+    const title = document.querySelector('input[name = "title"]').value;
+    const content = document.querySelector('input[name = "content"]').value;
 
     const res = await fetch(`/api/posts`, {
         method: 'POST',
         body: JSON.stringify({
-            postTitle,
-            postInfo,
+            title,
+            content,
         }),
          headers: {
             "Content-Type": "application/json",

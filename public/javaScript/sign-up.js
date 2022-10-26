@@ -9,7 +9,7 @@ const signUpForm = async () => {
               username,
               password,
             }),
-            headers: { 'Content-Type": "application/json' },
+            headers: { "Content-Type": "application/json" },
           });
       
           if (res.ok) {
