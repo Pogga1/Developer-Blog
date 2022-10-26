@@ -1,4 +1,4 @@
-const newPostHandler = async event => {
+const postForm = async event => {
     event.preventDefault();
     
     const postTitle = document.querySelector('input[name = "title"]').value;
@@ -10,14 +10,20 @@ const newPostHandler = async event => {
             postTitle,
             postInfo,
         }),
-         titles: {
+         headers: {
             "Content-Type": "application/json",
          },
     });
 
     console.log(res)
     if (res.ok) {
-        document.location.replace('/')
+        document.location.replace('/dashboard')
+    } else {
+        alert(res.statusText)
     }
-}
+};
+
+document
+    .querySelector("#new-post")
+    .addEventListener('click', postForm)
 
