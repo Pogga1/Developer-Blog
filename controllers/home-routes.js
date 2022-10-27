@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
-
+const sequelize = require("../config/connection");
 
 router.get('/', async (req, res) => {
   try {
@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
 
     const posts = postData.map((post) => post.get({ plain: true }));
 
-    res.render('homepage', {
+    res.render('home', {
       posts,
       logged_in: req.session.logged_in,
     });

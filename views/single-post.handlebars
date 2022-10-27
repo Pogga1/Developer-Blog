@@ -16,11 +16,11 @@
           <h3 class="card-title"></h3>
           <hr />
 
-          <form id="comment-form" class="card-body">
+          <form id="new-comment" class="card-body">
             <label class="form-label" >Comment</label>
             <br>
             <div class="input-group mb-3">
-                <input id="comment" name="comment-body" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input id="comment" name="comment-info" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
            
             <div class="d-grid gap-2">
@@ -34,5 +34,5 @@
 {{> comments post.comments}}
 
 {{#if loggedIn}}
-<script src="/js/comment.js"></script>
+<script src="/javaScript/comment.js"></script>
 {{/if}}
