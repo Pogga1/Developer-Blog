@@ -1,6 +1,7 @@
+
+const sequelize = require("../config/connection");
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
-const sequelize = require("../config/connection");
 
 router.get('/', async (req, res) => {
   try {
@@ -12,15 +13,16 @@ router.get('/', async (req, res) => {
             "id",
             "comment_text",
             "post_id",
-            "user_id"
-        ]
-        }],
+            "user_id",
+            "created_at",
+        ],
         inlcude: {
             model: User,
             attributes: [
                 "username"
             ]
         }
+      }],
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
@@ -38,8 +40,8 @@ router.get('/', async (req, res) => {
 router.get('/post/:id', async (req, res) => {
     try {
       const postData = await Post.findOne({
-        where: {id: req.id},
-        attributes: ["title", "content"],
+        where: {id: req.params.id},
+        attributes: ["title", "content","id","created_at"],
         inlcude: {
             model: User,
             attributes: [
@@ -52,7 +54,8 @@ router.get('/post/:id', async (req, res) => {
               "id",
               "comment_text",
               "post_id",
-              "user_id"
+              "user_id",
+              "created_at"
           ]
           }],
       });
@@ -71,10 +74,10 @@ router.get('/post/:id', async (req, res) => {
     }
   });
 
-  router.get('/post-comment/', async (req, res) => {
+  router.get('/post-comments', async (req, res) => {
     try {
       const commentData = await Post.findOne({
-        where: {id: req.id},
+        where: {id: req.params.id},
         attributes: ["title", "content"],
         inlcude: {
             model: User,
@@ -88,7 +91,8 @@ router.get('/post/:id', async (req, res) => {
               "id",
               "comment_text",
               "post_id",
-              "user_id"
+              "user_id",
+              "created_at"
           ]
           }],
       });
@@ -106,6 +110,8 @@ router.get('/post/:id', async (req, res) => {
       res.status(500).json(err);
     }
   });
+
+
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/');
