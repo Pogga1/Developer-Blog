@@ -47,7 +47,6 @@
 
 ## Credits
 * [*Andrew Eysoldt*-**GitHub**](https://github.com/Pogga1)
-    * *Tasks:* HTML Structure, Local Storage, Stylesheet and TailWind. 
 ----
 
 ## Technologies Used
