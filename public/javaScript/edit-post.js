@@ -8,7 +8,7 @@ const editFormHandler = async (event) => {
     window.location.toString().split("/").length - 1
   ];
 
-  const response = await fetch(`/api/posts/${id}`, {
+  const res = await fetch(`/api/posts/${id}`, {
     method: "PUT",
     body: JSON.stringify({
       title,
@@ -19,11 +19,11 @@ const editFormHandler = async (event) => {
     },
   });
 
-  console.log(response);
-  if (response.ok) {
+  console.log(res);
+  if (res.ok) {
     document.location.replace("/dashboard/");
   } else {
-    alert(response.statusText);
+    alert(res.statusText);
   }
 };
 

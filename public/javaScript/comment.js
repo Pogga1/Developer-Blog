@@ -10,7 +10,7 @@ const commentFormHandler = async (event) => {
   ];
 
   if (comment_text) {
-    const response = await fetch("/api/comments", {
+    const res = await fetch("/api/comments", {
       method: "POST",
       body: JSON.stringify({
         postId,
@@ -21,10 +21,10 @@ const commentFormHandler = async (event) => {
       },
     });
 
-    if (response.ok) {
+    if (res.ok) {
       document.location.reload();
     } else {
-      alert(response.statusText);
+      alert(res.statusText);
     }
   }
 };
