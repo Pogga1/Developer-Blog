@@ -12,8 +12,12 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
- 
-  
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/css/style.css" />
 
     <title>Tech Blog</title>
@@ -23,7 +27,7 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-gradient bg-secondary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Developer Blog</a>
+          <a class="navbar-brand" href="#">The Tech Blog</a>
           <div class="navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               {{#if loggedIn}}
@@ -35,7 +39,7 @@
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link active" id="logoutBtn" href="/">Logout</a>
+                  <a class="nav-link active" id="logout" href="/">Logout</a>
                 </li>
               {{else}}
                 <li class="nav-item">
@@ -56,7 +60,7 @@
       {{{body}}}
     </main>
     {{#if loggedIn}}
-      <script src="/javaScript/logout.js"></script>
+      <script src="/javascript/logout.js"></script>
     {{/if}}
   </body>
 </html>

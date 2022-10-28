@@ -1,0 +1,30 @@
+body {
+   
+    font-size: 1.5rem;
+    background-image: url("./842353-full-hd-background-images-1920x1080-for-windows-7.jpg");
+    background-size: cover;
+    height: 100vh;
+  }
+  .navbar-brand {
+    font-size: 2rem;
+  }
+  .customCard {
+    opacity: 0.9;
+  }
+  .user-comment {
+    font-size: 1.3rem;
+  }
+  
+  a {
+    color: rgb(244, 245, 247);
+    font-weight: bold;
+    text-shadow: 2px 2px 8px #000000;
+  }
+  
+  a:hover {
+    color: rgb(155, 197, 197);
+  }
+  
+  input {
+   font-weight: 900 !important;
+  }
