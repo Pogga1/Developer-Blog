@@ -110,7 +110,6 @@ router.post("/logout", (req, res) => {
   }
 });
 
-
 router.put("/:id", async (req, res) => {
   try {
     const dbUserData = await User.update(req.body, {
@@ -124,7 +123,6 @@ router.put("/:id", async (req, res) => {
       return;
     }
     res.json(dbUserData);
-
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

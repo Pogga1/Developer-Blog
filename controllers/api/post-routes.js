@@ -37,8 +37,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-
-
 router.get("/:id", async (req, res) => {
   try {
     const dbPostData = await Post.findOne({
@@ -69,7 +67,6 @@ router.get("/:id", async (req, res) => {
     });
     console.log(dbPostData);
 
-
     if (!dbPostData) {
       res.status(404).json({ message: "No post found with this id" });
       return;
@@ -80,7 +77,6 @@ router.get("/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 
 router.post("/", withAuth, async (req, res) => {
   try {
@@ -115,7 +111,7 @@ router.put("/:id", withAuth, async (req, res) => {
       res.status(404).json({ message: "No post found with this id" });
       return;
     }
-    res.status(200).json(dbPostData)
+    res.status(200).json(dbPostData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

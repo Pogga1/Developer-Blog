@@ -13,8 +13,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-
-
 router.get("/:id", async (req, res) => {
   try {
     const dbCommentData = await Comment.findAll({
@@ -28,7 +26,6 @@ router.get("/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 
 router.post("/", withAuth, async (req, res) => {
   if (req.session) {
@@ -45,8 +42,6 @@ router.post("/", withAuth, async (req, res) => {
     }
   }
 });
-
-
 
 router.put("/:id", withAuth, async (req, res) => {
   try {
@@ -72,7 +67,6 @@ router.put("/:id", withAuth, async (req, res) => {
   }
 });
 
-
 router.delete("/:id", withAuth, async (req, res) => {
   try {
     const dbCommentData = await Comment.destroy({
@@ -90,8 +84,5 @@ router.delete("/:id", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-
-
 
 module.exports = router;
