@@ -22,6 +22,7 @@
 ----
 
 ## Installation
+![Screenshot 2022-10-28 163813](https://user-images.githubusercontent.com/112588710/198750813-81d8b2a4-3782-4dde-ada7-cf79f8049c7d.png)
 
 * There are no steps involved to install this webpage.
 * Simply follow the link through your browser.
