@@ -1,4 +1,4 @@
-const editFormHandler = async (event) => {
+const editForm = async (event) => {
   event.preventDefault();
 
   const title = document.querySelector('input[name="post-title"]').value.trim();
@@ -29,4 +29,4 @@ const editFormHandler = async (event) => {
 
 document
   .querySelector(".edit-post-form")
-  .addEventListener("submit", editFormHandler);
+  .addEventListener("submit", editForm);

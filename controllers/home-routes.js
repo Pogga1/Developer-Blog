@@ -4,7 +4,7 @@ const router = require("express").Router();
 
 router.get("/", async (req, res) => {
   try {
-    const dbPostData = await Post.findAll({
+    const postData = await Post.findAll({
       attributes: ["id", "title", "content", "created_at"],
       include: [
         {
@@ -28,7 +28,7 @@ router.get("/", async (req, res) => {
       ],
     });
 
-    const posts = dbPostData.map((post) => post.get({ plain: true }));
+    const posts = postData.map((post) => post.get({ plain: true }));
     res.render("home", { posts, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
@@ -55,7 +55,7 @@ router.get("/signup", (req, res) => {
 
 router.get("/post/:id", async (req, res) => {
   try {
-    const dbPostData = await Post.findOne({
+    const postData = await Post.findOne({
       where: {
         id: req.params.id,
       },
@@ -82,11 +82,11 @@ router.get("/post/:id", async (req, res) => {
       ],
     });
 
-    if (!dbPostData) {
+    if (!postData) {
       res.status(404).json({ message: "No post found with this id" });
       return;
     }
-    const post = dbPostData.get({ plain: true });
+    const post = postData.get({ plain: true });
     console.log(post);
     res.render("single-post", { post, loggedIn: req.session.loggedIn });
   } catch (err) {
@@ -97,7 +97,7 @@ router.get("/post/:id", async (req, res) => {
 
 router.get("/posts-comments", async (req, res) => {
   try {
-    const dbPostData = await Post.findOne({
+    const postData = await Post.findOne({
       where: {
         id: req.params.id,
       },
@@ -124,11 +124,11 @@ router.get("/posts-comments", async (req, res) => {
       ],
     });
 
-    if (!dbPostData) {
+    if (!postData) {
       res.status(404).json({ message: "No post found with this id" });
       return;
     }
-    const post = dbPostData.get({ plain: true });
+    const post = postData.get({ plain: true });
 
     res.render("posts-comments", { post, loggedIn: req.session.loggedIn });
   } catch (err) {

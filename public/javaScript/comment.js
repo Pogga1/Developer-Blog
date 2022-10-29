@@ -1,4 +1,4 @@
-const commentFormHandler = async (event) => {
+const commentForm = async (event) => {
   event.preventDefault();
 
   const commentText = document
@@ -31,4 +31,4 @@ const commentFormHandler = async (event) => {
 
 document
   .querySelector("#comment-form")
-  .addEventListener("submit", commentFormHandler);
+  .addEventListener("submit", commentForm);
